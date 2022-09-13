@@ -6,6 +6,7 @@
 *.DS_Store
 *.code-workspace
 zip/
+pdf/
 
 # sbt
 dist/*
