@@ -14,7 +14,15 @@ object Main {
   /**
    * Exercise 1
    */
-  def pascal(c: Int, r: Int): Int = ???
+  def pascal(c: Int, r: Int): Int = {
+    if (c < 0 || r < 0 || c > r) throw new Exception("c or r is out of range")
+    else{
+      if (c == 0 || c == r) 1 
+      else {
+        pascal(c - 1, r - 1) + pascal(c, r - 1)
+      }
+    }
+  }
 
   /**
    * Exercise 2
