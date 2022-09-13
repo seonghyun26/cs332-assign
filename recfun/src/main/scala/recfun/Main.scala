@@ -27,10 +27,28 @@ object Main {
   /**
    * Exercise 2
    */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    def balanceRec(chars: List[Char], count: Int): Boolean ={
+      if (chars.isEmpty){
+        if (count == 0) true
+        else false
+      }
+      else {
+        if (chars.head == '(')  balanceRec(chars.tail, count+1)
+        else if (chars.head == ')')  {
+          if (count < 1)  false
+          else balanceRec(chars.tail, count-1)
+        }
+        else balanceRec(chars.tail, count)
+      }
+    }
+    balanceRec(chars, 0)
+  }
 
   /**
    * Exercise 3
    */
-  def countChange(money: Int, coins: List[Int]): Int = ???
+  def countChange(money: Int, coins: List[Int]): Int = {
+    money
+  }
 }
