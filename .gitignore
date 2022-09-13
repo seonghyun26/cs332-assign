@@ -1,2 +1,18 @@
+# Scala
 *.class
 *.log
+
+# OS, IDE
+*.DS_Store
+*.code-workspace
+zip/
+
+# sbt
+dist/*
+*/target/
+*/project/
+lib_managed/
+src_managed/
+*.history
+*.cache
+*.lib/
