@@ -31,7 +31,7 @@ class HuffmanSuite extends FunSuite {
   }
 
   test("times for some char list") {
-    assert(t === List(('a',2), ('b',1), ('c',2), ('d',4)))
+    assert(times("aabccdddd".toList) === List(('a',2), ('b',1), ('c',2), ('d',4)))
   }
 
   test("makeOrderedLeafList for some frequency table") {
