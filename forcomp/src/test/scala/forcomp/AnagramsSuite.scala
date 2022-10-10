@@ -24,6 +24,10 @@ class AnagramsSuite extends FunSuite {
     assert(sentenceOccurrences(List("abcd", "e")) === List(('a', 1), ('b', 1), ('c', 1), ('d', 1), ('e', 1)))
   }
 
+  test("sentenceOccurrences: Robert ate") {
+    assert(sentenceOccurrences(List("Robert", "ate")) === List(('a', 1), ('b', 1), ('e', 2), ('o', 1), ('r', 2), ('t', 2)))
+  }
+
 
 
   test("dictionaryByOccurrences.get: eat") {
