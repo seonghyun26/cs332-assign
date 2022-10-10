@@ -93,12 +93,13 @@ object Anagrams {
    */
   def combinations(occurrences: Occurrences): List[Occurrences] = occurrences match {
     case Nil => List(Nil)
-    case (head:(Char, Int)) :: (tail:Occurrences)=> {
-      val occurrenceList = for {
+    case head :: tail => { for {
         tailList <- combinations(tail)
-        headCnt <- 1 to head._2
-      } yield (head._1, headCnt) :: tailList
-      occurrenceList ::: combinations(tail)
+        headCnt <- 0 to head._2
+      } yield {
+        if (headCnt == 0) tailList
+        else (head._1, headCnt) :: tailList
+      }
     } 
   }
 
