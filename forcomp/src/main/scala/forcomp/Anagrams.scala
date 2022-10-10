@@ -61,7 +61,7 @@ object Anagrams {
    *
    */
   lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] = {
-    dictionary.groupBy(wordOccurrences(_))
+    dictionary groupBy wordOccurrences
   }
 
   /** Returns all the anagrams of a given word. */
@@ -95,7 +95,7 @@ object Anagrams {
     case Nil => List(Nil)
     case (head:(Char, Int)) :: (tail:Occurrences)=> {
       val occurrenceList = for {
-        tailList <- combinations(tail);
+        tailList <- combinations(tail)
         headCnt <- 1 to head._2
       } yield (head._1, headCnt) :: tailList
       occurrenceList ::: combinations(tail)
@@ -113,8 +113,8 @@ object Anagrams {
    *  and has no zero-entries.
    */
   def subtract(x: Occurrences, y: Occurrences): Occurrences = {
-    y.foldLeft(x.toMap)((occurrenceList, subtractOccurrence) => {
-      occurrenceList.updated(subtractOccurrence._1, occurrenceList.apply(subtractOccurrence._1) - subtractOccurrence._2)
+    y.foldLeft(x.toMap)((occList, subtractOcc) => {
+      occList.updated(subtractOcc._1, occList.apply(subtractOcc._1) - subtractOcc._2)
     })
     .toList
     .filter(_._2 > 0)
