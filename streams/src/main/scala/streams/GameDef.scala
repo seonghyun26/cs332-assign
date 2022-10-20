@@ -111,8 +111,8 @@ trait GameDef {
 
     /** The block obtained by moving left */
     def left = if (isStanding)              dy(-2, -1)
-               else if (b1.row == b2.row)   dy(-1, -2)
-               else                         dy(-1, -1)
+                else if (b1.row == b2.row)   dy(-1, -2)
+                else                         dy(-1, -1)
 
     /** The block obtained by moving right */
     def right = if (isStanding)             dy(1, 2)
@@ -121,13 +121,13 @@ trait GameDef {
 
     /** The block obtained by moving up */
     def up = if (isStanding)              dx(-2, -1)
-             else if (b1.row == b2.row)   dx(-1, -1)
-             else                         dx(-1, -2)
+              else if (b1.row == b2.row)   dx(-1, -1)
+              else                         dx(-1, -2)
 
     /** The block obtained by moving down */
     def down = if (isStanding)             dx(1, 2)
-               else if (b1.row == b2.row)  dx(1, 1)
-               else                        dx(2, 1)
+                else if (b1.row == b2.row)  dx(1, 1)
+                else                        dx(2, 1)
 
 
     /**
@@ -150,7 +150,7 @@ trait GameDef {
     /**
      * Returns `true` if the block is entirely inside the terrain.
      */
-    def isLegal: Boolean = terrain(b1) && terrain(b2)
+    def isLegal: Boolean = b1.row >= 0 && b1.col >= 0 && b2.row >= 0 && b2.col >= 0 && terrain(b1) && terrain(b2) 
 
   }
 }
